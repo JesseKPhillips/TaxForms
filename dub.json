@@ -1,0 +1,11 @@
+{
+	"name": "taxforms",
+	"version": "0.0.1",
+	"description": "Programs to help fill out tax forms",
+	"authors": ["Jesse Phillips"],
+	"homepage": "",
+	"license": "BSL-1.0",
+	"dependencies": {
+		"scriptlike": "~master"
+	}
+}
