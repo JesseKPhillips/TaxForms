@@ -43,9 +43,13 @@ auto display(DocumentData data) {
     writeln();
 
     foreach(lineNum, lineValue; data.entry[]) {
+        if(lineValue.isNull) {
+            writeln("Line %3s".format(lineNum+1), ": ", "undefined");
+            continue;
+        }
         if(lineValue.peek!(int[]))
             foreach(subi, subline; lineValue.get.get!(int[]))
-                writeln("Line %3s".format(to!string(lineNum+1) ~ to!char(subi+'a')), ": ", lineValue.get.get!int.formatNum);
+                writeln("Line %3s".format(to!string(lineNum+1) ~ to!char(subi+'a')), ": ", subline.formatNum);
         else
             writeln("Line %3s".format(lineNum+1), ": ", lineValue.get.get!int.formatNum);
     }

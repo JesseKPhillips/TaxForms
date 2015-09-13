@@ -76,16 +76,19 @@ struct DocumentEntries {
             return;
         }
 
+        auto subIndex = sub - 'a';
+
         if(value.isNull) {
-            auto arr = new int[](sub - 'a' + 1);
-            arr[sub] = v;
+            auto arr = new int[](subIndex + 1);
+            arr[subIndex] = v;
             lineData[i-1] = LineType(arr);
+            return;
         }
 
         auto nonNull = value.get.get!(int[]);
-        if(nonNull.length < sub-'a'+1)
-            nonNull.length = sub-'a'+1;
-        nonNull[sub] = v;
+        if(nonNull.length < subIndex+1)
+            nonNull.length = subIndex+1;
+        nonNull[subIndex] = v;
         lineData[i-1] = LineType(nonNull);
     }
 
