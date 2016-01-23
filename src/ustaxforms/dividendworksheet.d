@@ -17,8 +17,8 @@ import taxforms.framework;
 static this() {
     initDocument!fillSheet(
       "Qualified Dividend and Capital Gain Tax Worksheet",
-      Year(2014),
-      Reviewers(1));
+      Year(2015),
+      Reviewers(0));
 }
 
 auto form1040 = form!"Form 1040 U.S. Individual Income Tax Return";
@@ -57,16 +57,16 @@ DocumentEntries fillSheet() {
 
     final switch(statusSelection) with(MarriageFiling) {
         case single:
-            worksheet[Line(8)] = 36_900;
+            worksheet[Line(8)] = 37_450;
             break;
         case separate:
-            worksheet[Line(8)] = 73_800;
+            worksheet[Line(8)] = 37_450;
             break;
         case jointly:
-            worksheet[Line(8)] = 73_800;
+            worksheet[Line(8)] = 74_900;
             break;
         case headofhouse:
-            worksheet[Line(8)] = 49_400;
+            worksheet[Line(8)] = 50_200;
             break;
         case unanswered:
             throw new Exception("Can't avoid answering this question.");
@@ -81,16 +81,16 @@ DocumentEntries fillSheet() {
 
     final switch(statusSelection) with(MarriageFiling) {
         case single:
-            worksheet[Line(15)] = 406_750;
+            worksheet[Line(15)] = 413_200;
             break;
         case separate:
-            worksheet[Line(15)] = 228_800;
+            worksheet[Line(15)] = 232_425;
             break;
         case jointly:
-            worksheet[Line(15)] = 457_600;
+            worksheet[Line(15)] = 464_850;
             break;
         case headofhouse:
-            worksheet[Line(15)] = 432_200;
+            worksheet[Line(15)] = 439_000;
             break;
         case unanswered:
             assert(false, "Already verified question was answered");
