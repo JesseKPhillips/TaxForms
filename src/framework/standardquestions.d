@@ -21,3 +21,11 @@ MarriageFiling askMarriageFiling() {
 
     return mfAnswer;
 }
+
+private Nullable!bool claimedAnswer;
+
+bool askClaimedAsDependent() {
+    if(claimedAnswer.isNull)
+        claimedAnswer = userInput!bool("Are you being claimed as a dependent?");
+    return claimedAnswer;
+}
